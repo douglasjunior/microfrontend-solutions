@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@single-spa/welcome": "https://cdn.jsdelivr.net/npm/single-spa-welcome/dist/single-spa-welcome.min.js",
+    "@remote-app/spa1": "http://localhost:4444/src/spa.tsx"
+  }
+}
