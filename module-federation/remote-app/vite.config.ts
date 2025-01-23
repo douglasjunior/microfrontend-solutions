@@ -4,6 +4,15 @@ import { federation } from '@module-federation/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    port: 4444,
+    cors: true,
+  },
+  preview: {
+    port: 4444,
+    cors: true,
+  },
+  base: 'http://localhost:4444/',
   plugins: [
     react(),
     federation({

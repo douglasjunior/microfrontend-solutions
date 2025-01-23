@@ -9,7 +9,7 @@ export default defineConfig({
     federation({
       name: '@host-app',
       remotes: {
-        '@remote-app': 'http://localhost:3000/mf-manifest.json'
+        '@remote-app': 'http://localhost:4444/mf-manifest.json'
       },
       filename: 'remoteEntry-[hash].js',
       manifest: true,
