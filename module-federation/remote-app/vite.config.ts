@@ -18,7 +18,7 @@ export default defineConfig({
     federation({
       name: '@remote-app',
       exposes: {
-        '.': './src/App.tsx',
+        '.': './src/entrypoint.ts',
       },
       filename: 'remoteEntry-[hash].js',
       manifest: true,
@@ -27,6 +27,9 @@ export default defineConfig({
           requiredVersion: '18',
         },
         'react-dom': {},
+        'react-router': {
+          requiredVersion: '7'
+        },
       }
     }),
   ],
