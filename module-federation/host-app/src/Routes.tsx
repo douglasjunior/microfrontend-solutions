@@ -1,11 +1,13 @@
-import { lazy, useMemo } from "react";
-import { createBrowserRouter, RouteObject, RouterProvider } from "react-router";
+import { lazy } from "react";
+
+import { routes as remoteAppRoutes, basename as remoteAppBaseName } from '@remote-app-1';
+
 import Template from "./Template";
-import { Content as RemoteAppContent, basename as remoteAppBaseName } from '@remote-app';
+import { mapRoutesToBasename, renderRoutes } from "./utils";
 
 const HomePage = lazy(() => import('./HomePage'));
 
-const routes: RouteObject[] = [
+export const routes = renderRoutes([
   {
     element: <Template />,
     children: [
@@ -19,19 +21,10 @@ const routes: RouteObject[] = [
           },
           {
             path: remoteAppBaseName,
-            Component: RemoteAppContent,
+            children: mapRoutesToBasename(remoteAppRoutes, remoteAppBaseName),
           }
         ],
       },
     ],
   }
-];
-
-const Routes = () => {
-  const browserRouter = useMemo(() => createBrowserRouter(routes), []);
-  return (
-    <RouterProvider router={browserRouter} />
-  );
-};
-
-export default Routes;
+]);

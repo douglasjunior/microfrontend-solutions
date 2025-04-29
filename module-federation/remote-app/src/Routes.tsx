@@ -1,11 +1,13 @@
-import { lazy, useMemo } from "react";
-import { createBrowserRouter, RouteObject, RouterProvider, } from "react-router";
+import { lazy } from "react";
+
 import Template from "./Template";
 
 const HomePage = lazy(() => import('./HomePage'));
-const CounterPage = lazy(() => import('./CounterPage')); 
+const CounterPage = lazy(() => import('./CounterPage'));
 
-const routes: RouteObject[] = [
+export const basename = '/remote-app-1';
+
+export const routes = [
   {
     element: <Template />,
     path: '/',
@@ -22,14 +24,3 @@ const routes: RouteObject[] = [
     ],
   }
 ];
-
-export const BASE_NAME = '/remote-app-1';
-
-const Routes = () => {
-  const browserRouter = useMemo(() => createBrowserRouter(routes, { basename: BASE_NAME }), []);
-  return (
-    <RouterProvider router={browserRouter} />
-  );
-};
-
-export default Routes;

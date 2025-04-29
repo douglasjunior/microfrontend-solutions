@@ -1,13 +1,14 @@
-import { Suspense } from 'react';
-import Routes from './Routes';
+import { BrowserRouter, Routes } from 'react-router';
+
+import { routes } from './Routes';
 
 function App() {
   return (
-    <div>
-      <Suspense>
-        <Routes />
-      </Suspense>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {routes}
+      </Routes>
+    </BrowserRouter>
   );
 }
 

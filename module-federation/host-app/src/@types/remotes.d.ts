@@ -1,6 +1,8 @@
 /* Declare here all remote modules */
 
-declare module "@remote-app" {
-  export const Content: React.ComponentType;
+type RoutesType = import('../utils').RemoteRouteType[]
+
+declare module "@remote-app-1" {
+  export const routes: RoutesType;
   export const basename: string;
 };

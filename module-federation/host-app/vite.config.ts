@@ -9,7 +9,7 @@ export default defineConfig({
     federation({
       name: '@host-app',
       remotes: {
-        '@remote-app': 'http://localhost:4444/mf-manifest.json'
+        '@remote-app-1': 'http://localhost:4444/mf-manifest.json'
       },
       filename: 'remoteEntry-[hash].js',
       manifest: true,
@@ -18,6 +18,9 @@ export default defineConfig({
           requiredVersion: '18',
         },
         'react-dom': {},
+        'react-router': {
+          requiredVersion: '7'
+        }
       }
     })
   ],

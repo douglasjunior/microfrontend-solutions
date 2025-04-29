@@ -16,7 +16,7 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: '@remote-app',
+      name: '@remote-app-1',
       exposes: {
         '.': './src/entrypoint.ts',
       },

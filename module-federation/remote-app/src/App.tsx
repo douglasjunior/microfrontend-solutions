@@ -1,10 +1,18 @@
-import { Content } from './entrypoint'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 
-import './App.css'
+import { basename, routes } from './entrypoint'
+import { renderRoutes } from './utils';
+
+const content = renderRoutes(routes, basename);
 
 function App() {
   return (
-    <Content />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" index element={<Navigate to={basename} />} />
+        {content}
+      </Routes>
+    </BrowserRouter>
   )
 }
 
